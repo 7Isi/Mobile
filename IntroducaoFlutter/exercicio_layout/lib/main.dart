@@ -13,12 +13,15 @@ void main() {
 //Janela para estudo de layout (Columns, Rows, Stacks, Containers)
 
 class MyApp extends StatelessWidget {
+  get child => null;
+
   //Sobrescrever o método build
   @override
   Widget build(BuildContext context) {
-    return Scaffold( //suporte da janela (appbar, body, bottonNB, drawer)
-      appBar: AppBar (title: Text("Execício de Layout e Exibição"),),
-      body: Container (
+    return Scaffold(
+      //suporte da janela (appbar, body, bottonNB, drawer)
+      appBar: AppBar(title: Text("Execício de Layout e Exibição")),
+      body: Container(
         color: Colors.blueGrey,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -37,51 +40,75 @@ class MyApp extends StatelessWidget {
                   width: 300,
                 ),
 
-                Image.asset("assets/img/cavaleirin.png",
+                Image.asset(
+                  "assets/img/cavaleirin.png",
                   height: 270,
                   width: 270,
                   fit: BoxFit.cover,
                 ),
               ],
             ),
-              
-              Text("ARTHUR C.",
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: 25,
-              fontWeight: FontWeight.bold),),
 
+            Text(
+              "Paffh A.",
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+            ),
 
-              Text("Carazinho, RS",
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: 25,
-              fontWeight: FontWeight.bold),),
+            Text(
+              "Algum Lugar, CDC",
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+            ),
 
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Container(
-                  color: Colors.blueAccent,
-                  height: 100,
-                  width: 100,
-                ),
+                Container(color: Colors.blueAccent, height: 125, width: 125),
 
-                Container(
-                  color: Colors.indigoAccent,
-                  height: 100,
-                  width: 100,
-                ),
+                Container(color: Colors.indigoAccent, height: 125, width: 125),
 
                 Container(
                   color: Colors.lightBlueAccent,
-                  height: 100,
-                  width: 100,
+                  height: 125,
+                  width: 125,
                 ),
               ],
             ),
-        ],),
-      )
+
+            ListView(
+              shrinkWrap: true,
+              children: [
+                ListTile(
+                  leading: Icon(Icons.star),
+                  title: Text("Contatos"),
+                  trailing: Icon(Icons.arrow_forward),
+                ),
+                ListTile(
+                  leading: Icon(Icons.star),
+                  title: Text("Carteira"),
+                  trailing: Icon(Icons.arrow_forward),
+                ),
+                ListTile(
+                  leading: Icon(Icons.star),
+                  title: Text("Configuração"),
+                  trailing: Icon(Icons.arrow_forward),
+                ),
+                ListTile(
+                  leading: Icon(Icons.star),
+                  title: Text("Privacidade"),
+                  trailing: Icon(Icons.arrow_forward),
+                ),
+                ListTile(
+                  leading: Icon(Icons.star),
+                  title: Text("Suporte"),
+                  trailing: Icon(Icons.arrow_forward),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
