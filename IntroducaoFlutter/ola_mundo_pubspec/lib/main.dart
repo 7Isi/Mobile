@@ -7,6 +7,9 @@ void main() {
 
 //extends - busca de herença duma superclasse
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(

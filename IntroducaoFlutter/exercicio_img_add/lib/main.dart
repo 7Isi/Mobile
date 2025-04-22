@@ -8,7 +8,7 @@ void main(){
 //criar a Janela Principal
 class MyApp extends StatelessWidget{
   //criar lista de itens
-  List<String> _imagens = [
+  final List<String> _imagens = [
     "https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0",
   "https://images.unsplash.com/photo-1521747116042-5a810fda9664",
 "https://images.unsplash.com/photo-1504384308090-c894fdcc538d",
@@ -22,6 +22,8 @@ class MyApp extends StatelessWidget{
   ];
   //construtor de Widget
     final TextEditingController _imagemController = TextEditingController();
+
+  MyApp({super.key});
 
   @override
   Widget build(BuildContext context){

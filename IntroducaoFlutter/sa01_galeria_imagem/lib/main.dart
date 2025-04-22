@@ -9,7 +9,7 @@ void main(){
 //criar a Janela Principal
 class MyApp extends StatelessWidget{
   //criar lista de itens
-  List<String> _imagens = [
+  final List<String> _imagens = [
     "https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0",
   "https://images.unsplash.com/photo-1521747116042-5a810fda9664",
 "https://images.unsplash.com/photo-1504384308090-c894fdcc538d",
@@ -21,6 +21,8 @@ class MyApp extends StatelessWidget{
 "https://images.unsplash.com/photo-1494172961521-33799ddd43a5",
 "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4",
   ];
+
+  MyApp({super.key});
   //construtor de Widget
   @override
   Widget build(BuildContext context){
