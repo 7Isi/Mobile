@@ -1,4 +1,4 @@
-package com.example.exercicio_img_add
+package com.example.exemplo_shared_preferences
 
 import io.flutter.embedding.android.FlutterActivity
 
