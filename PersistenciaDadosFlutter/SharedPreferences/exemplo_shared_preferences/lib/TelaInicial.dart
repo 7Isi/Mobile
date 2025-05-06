@@ -30,8 +30,7 @@ class _TelaInicialState extends State<TelaInicial> {
     SharedPreferences _prefs =
         await SharedPreferences.getInstance(); //pegar as informações do cache
     _nome = _prefs.getString("nome") ?? ""; //pega o nome do usuário no shared_
-    _darkMode =
-        _prefs.getBool("darkMode") ?? false; //pega o modo escuro no shared_
+    _darkMode = _prefs.getBool("darkMode") ?? false; //pega o modo escuro no shared_
     setState(() {
       // recarregar a tela
     });
@@ -100,6 +99,10 @@ class _TelaInicialState extends State<TelaInicial> {
                 onPressed: _salvarNome,
                 child: Text("Salvar Nome do Usuário"),
               ),
+              SizedBox(height: 20,),
+              ElevatedButton(
+                onPressed: () => Navigator.pushNamed(context, "/tarefas"), 
+                child: Text("Tarefas do $_nome"),)
             ],
           ),
         ),
@@ -110,10 +113,13 @@ class _TelaInicialState extends State<TelaInicial> {
 
 // o que é o SharedPreferences?
 // é uma biblioteca de armazenamento de dados interna do aplicativo (cache do app)
+
 //como ela funciona?
 // armazena dados na condição de chave-valor(key-value)
 // nome -> _nome
+
 // tipos de dados armazenados no Shared preferences:
 // String, int, double, bool, List<String>
+
 //métodos dos shared preferences:
 // getters and setters
