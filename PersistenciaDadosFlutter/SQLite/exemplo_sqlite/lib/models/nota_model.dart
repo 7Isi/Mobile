@@ -22,12 +22,25 @@ class Nota {
 
   Map<String, dynamic> toMap() {
     return {
-      "id" : id,
-      "titulo" : titulo,
-      "conteudo" : conteudo
+      "id": id, 
+      "titulo": titulo, 
+      "conteudo": conteudo
     };
   }
 
+  //factory -> converte dados do DB para um obj
 
-  //factory
+  factory Nota.fromMap(Map<String, dynamic> map) {
+    return Nota(
+      id: map["id"] as int,
+      titulo: map["titulo"] as String,
+      conteudo: map["conteudo"] as String,
+    );
+  }
+
+  //toString
+  @override
+  String toString() {
+    return "Nota {id: $id, Título: $titulo, Conteúdo: $conteudo}";
+  }
 }
