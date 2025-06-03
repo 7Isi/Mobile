@@ -27,6 +27,8 @@ class Pet {
     required this.telefone,
   });
 
+
+
   //métodos de converção OBJ <--> BD
   //toMap : obj -> entidade do BD
 
@@ -39,6 +41,7 @@ class Pet {
       "telefone": telefone,
     };
   }
+
 
   //fromMap BD -> obj
   factory Pet.fromMap(Map<String, dynamic> map) {

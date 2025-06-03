@@ -19,6 +19,8 @@ class Consulta {
     required this.observacao,
   });
 
+
+
   //método de Converção
   //toMap Obj --> BD
   Map<String, dynamic> toMap() => {
@@ -28,6 +30,7 @@ class Consulta {
     "tipo_servico": tipoServico,
     "observacao": observacao,
   };
+
 
   //fromMap() : BD --> obj
   factory Consulta.fromMap(Map<String, dynamic> map) {
@@ -40,12 +43,15 @@ class Consulta {
     );
   }
 
+
+
   //método para converter dataHora em Formato Local("dd/MM/yyyy  HH:mm")
 
   String get dataHoraLocal {
     final local = DateFormat("dd/MM/yyyy HH:mm");
     return local.format(dataHora);
   }
+
 
   @override
   String toString() {
