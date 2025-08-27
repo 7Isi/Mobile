@@ -1,0 +1,48 @@
+{
+  "usuarios": [
+    {
+      "id": "1",
+      "nome": "Mettaton",
+      "email": "superstar@gmail.com"
+    },
+    {
+      "id": "2",
+      "nome": "Asgore",
+      "email": "meuemailREI@gmail.com"
+    },
+    {
+      "id": "3af0",
+      "nome": "Alphys",
+      "email": "catsGirlsANIME@gmail.com"
+    },
+    {
+      "id": "ac9b",
+      "nome": "Temmie",
+      "email": "temmieTEMMIE@gmail.com"
+    }
+  ],
+  "livros": [
+    {
+      "id": "1",
+      "titulo": "Undertale",
+      "autor": "desconhecido",
+      "disponivel": false
+    },
+    {
+      "id": "2",
+      "titulo": "A Hora da Estrela",
+      "autor": "Clarisse Lispector",
+      "disponivel": true
+    }
+  ],
+  "emprestimo": [
+    {
+      "id": "1",
+      "usuarioId": 2,
+      "livroId": 2,
+      "dataEmprestimo": "2025-08-27",
+      "dataDevolução": "2025-09-06",
+      "devolvido": false
+    }
+  ]
+}
