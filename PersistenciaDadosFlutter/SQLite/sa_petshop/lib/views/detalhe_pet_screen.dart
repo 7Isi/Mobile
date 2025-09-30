@@ -11,7 +11,7 @@ class DetalhePetScreen extends StatefulWidget {
   final int petId; //receber o Id do Pet
 
   //construtor para pegar o id do pet
-  DetalhePetScreen({super.key, required this.petId});
+  const DetalhePetScreen({super.key, required this.petId});
 
   @override
   State<StatefulWidget> createState() {

@@ -6,6 +6,8 @@ import 'package:sa_petshop/models/pet_model.dart';
 import 'package:sa_petshop/views/cadastro_pets_screen.dart';
 
 class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
+
   // recebe as notificações de mudança e chama o build da tela
   @override
   State<StatefulWidget> createState() {

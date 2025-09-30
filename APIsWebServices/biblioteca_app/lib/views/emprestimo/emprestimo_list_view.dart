@@ -12,7 +12,7 @@ class EmprestimoListView extends StatefulWidget {
 class _EmprestimoListViewState extends State<EmprestimoListView> {
   //atributos
   final _controller = EmprestimoController();
-  List<EmprestimoModel> _livros = [];
+  List<EmprestimoModel> _emprestimos = [];
   bool _carregando = true;
 
   @override
@@ -26,7 +26,7 @@ class _EmprestimoListViewState extends State<EmprestimoListView> {
       _carregando = true;
     });
     try {
-      _livros = await _controller.fetchAll();
+      _emprestimos = await _controller.fetchAll();
     } catch (e) {
       //Tratar Erro      
     }
@@ -44,12 +44,14 @@ class _EmprestimoListViewState extends State<EmprestimoListView> {
       : Expanded(
         child: ListView.builder(
           padding: EdgeInsets.all(8),
-          itemCount: _livros.length,
+          itemCount: emprestimos.length,
           itemBuilder: (context,index){
-            final usuario = _livros[index];
+            final emprestimos = emprestimos[index];
             return Card(
               child: ListTile(
-                title: Text(usuario.titulo),
+                title: Text(emprestimos.dataEmprestimo),
+                subtitle: Text(emprestimos.dataDevolucao),
+                //trailing -> icone para deletar o usuário
               ),
             );
           }))

@@ -10,7 +10,10 @@ class LivroModel {
 
   //contrutor 
   LivroModel({
-    this.id, required this.titulo, required this.autor, required this.disponivel
+    required this.id, 
+    required this.titulo, 
+    required this.autor, 
+    required this.disponivel
   });
 
 
@@ -20,7 +23,8 @@ class LivroModel {
     id: json["id"].toString(),
     titulo: json["titulo"].toString(),
     autor: json["autor"].toString(),
-    disponivel: json["disponivel"] ==1 ? true : false
+    disponivel: json["disponivel"] == true ? true : false
+    //disponivel: json["disponivel"] == 1 ? true : false);
   );
 
 

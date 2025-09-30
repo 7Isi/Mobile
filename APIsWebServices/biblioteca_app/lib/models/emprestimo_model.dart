@@ -13,7 +13,12 @@ class EmprestimoModel {
 
   //contrutor 
   EmprestimoModel({
-    this.id, required this.usuarioId, required this.livroId, required this.dataEmprestimo, required this.dataDevolucao, required this.devolvido
+    required this.id, 
+    required this.usuarioId, 
+    required this.livroId, 
+    required this.dataEmprestimo, 
+    required this.dataDevolucao, 
+    required this.devolvido
   });
 
 
@@ -25,7 +30,7 @@ class EmprestimoModel {
     livroId: json["livroId"].toString(),
     dataEmprestimo: json["dataEmprestimo"].toDateTime(),
     dataDevolucao: json["dataDevolucao"].toDateTime(),
-    devolvido: json["devolvido"] ==1 ? true : false
+    devolvido: json["devolvido"] == true ? true : false
   );
 
 

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart'; //Importa a biblioteca SharedPreferences
 
 class TelaInicial extends StatefulWidget {
+  const TelaInicial({super.key});
+
   //Tela Dinâmica (mudança de estado)
   @override
   _TelaInicialState createState() => _TelaInicialState(); //Chama da Mudança de Estado
@@ -10,7 +12,7 @@ class TelaInicial extends StatefulWidget {
 class _TelaInicialState extends State<TelaInicial> {
   //Estado da Tela Inicial
   //atributos
-  TextEditingController _nomeController =
+  final TextEditingController _nomeController =
       TextEditingController(); //Recebe informações TextField
   String _nome = ""; // Atributo que Armazena o Nome do Usuário
 
@@ -27,10 +29,10 @@ class _TelaInicialState extends State<TelaInicial> {
   //método para Carregar Preferencias do Usuário
   void _carregarPreferencias() async {
     //método assincrono
-    SharedPreferences _prefs =
+    SharedPreferences prefs =
         await SharedPreferences.getInstance(); //pegar as informações do cache
-    _nome = _prefs.getString("nome") ?? ""; //pega o nome do usuário no shared_
-    _darkMode = _prefs.getBool("darkMode") ?? false; //pega o modo escuro no shared_
+    _nome = prefs.getString("nome") ?? ""; //pega o nome do usuário no shared_
+    _darkMode = prefs.getBool("darkMode") ?? false; //pega o modo escuro no shared_
     setState(() {
       // recarregar a tela
     });
@@ -39,7 +41,7 @@ class _TelaInicialState extends State<TelaInicial> {
   //Método para Salvar o Nome do Usuário
   void _salvarNome() async {
     //adicinar o salar no shared preferences
-    SharedPreferences _prefs = await SharedPreferences.getInstance();
+    SharedPreferences prefs = await SharedPreferences.getInstance();
     _nome = _nomeController.text.trim();
     if (_nome.isEmpty) {
       //Madar uma Mensagem para o usuário
@@ -48,7 +50,7 @@ class _TelaInicialState extends State<TelaInicial> {
       ).showSnackBar(SnackBar(content: Text("Informe um Nome Válido!")));
     } else {
       _nomeController.clear(); //limpa o TextField
-      _prefs.setString("nome", _nome); //salva o nome no sharedPref
+      prefs.setString("nome", _nome); //salva o nome no sharedPref
       setState(() {
         //Atualizar o Nome do usuário na Tela
         ScaffoldMessenger.of(
@@ -60,9 +62,9 @@ class _TelaInicialState extends State<TelaInicial> {
 
   //salvar modo escuro
   void _salvarModoEscuro() async {
-    SharedPreferences _prefs = await SharedPreferences.getInstance();
+    SharedPreferences prefs = await SharedPreferences.getInstance();
     _darkMode = !_darkMode; //inverter o valor do darkmode(atributo)
-    _prefs.setBool("darkMode", _darkMode); //salva no shared
+    prefs.setBool("darkMode", _darkMode); //salva no shared
     setState(() {
       //atualiza a tela
       ScaffoldMessenger.of(context).showSnackBar(

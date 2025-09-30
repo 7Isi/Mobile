@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "915344924652",
+    "project_id": "lista-de-tarefas-flutter-116a1",
+    "storage_bucket": "lista-de-tarefas-flutter-116a1.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:915344924652:android:a4603d3d838775b29eaac9",
+        "android_client_info": {
+          "package_name": "com.example.to_do_list_firebase"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWktKXVsRiHPj5Ayhe-VwjF-uBeTEpPMQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

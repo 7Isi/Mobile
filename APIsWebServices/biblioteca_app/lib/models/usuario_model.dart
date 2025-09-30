@@ -9,7 +9,9 @@ class UsuarioModel {
 
   //contrutor 
   UsuarioModel({
-    this.id, required this.nome, required this.email
+    required this.id, 
+    required this.nome, 
+    required this.email
   });
 
 

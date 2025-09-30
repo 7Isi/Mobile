@@ -19,6 +19,8 @@ void main() {
 //minha classe para o perfil page
 
 class PerfilPage extends StatefulWidget {
+  const PerfilPage({super.key});
+
   @override
   State<PerfilPage> createState() => _PerfilPageState();
 }
@@ -26,8 +28,8 @@ class PerfilPage extends StatefulWidget {
 class _PerfilPageState extends State<PerfilPage> {
   //atributos
 
-  TextEditingController _nomeController = TextEditingController();
-  TextEditingController _idadeController = TextEditingController();
+  final TextEditingController _nomeController = TextEditingController();
+  final TextEditingController _idadeController = TextEditingController();
   String? _corSelecionada;
   Color _corFundo = Colors.white;
 
@@ -109,7 +111,7 @@ class _PerfilPageState extends State<PerfilPage> {
 
           SizedBox(height: 15,),
           DropdownButtonFormField(
-            value: _corSelecionada,
+            initialValue: _corSelecionada,
             decoration: InputDecoration(labelText: "Cor Favorita"),
             items: coresDisponiveis.keys.map((cor) {
               return DropdownMenuItem(

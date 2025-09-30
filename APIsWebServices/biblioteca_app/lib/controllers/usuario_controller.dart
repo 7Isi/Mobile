@@ -43,7 +43,7 @@ class UsuarioController {
 
   //Delete Usuário
   Future<void> delete(String id) async{
-    await ApiService.delete("usuarios", id);
+    await ApiService.delete("usuarios", id);//sem retorno nenhum
   }
 
 

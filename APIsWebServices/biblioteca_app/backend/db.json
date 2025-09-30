@@ -1,11 +1,6 @@
 {
   "usuarios": [
     {
-      "id": "1",
-      "nome": "Mettaton",
-      "email": "superstar@gmail.com"
-    },
-    {
       "id": "2",
       "nome": "Asgore",
       "email": "meuemailREI@gmail.com"
@@ -19,6 +14,16 @@
       "id": "ac9b",
       "nome": "Temmie",
       "email": "temmieTEMMIE@gmail.com"
+    },
+    {
+      "id": "1",
+      "nome": "METTATON 💫💫",
+      "email": "superstar@gmail.com"
+    },
+    {
+      "id": "999",
+      "nome": "Rafael Lange",
+      "email": "cabeludo123@gmail.com"
     }
   ],
   "livros": [
@@ -27,6 +32,12 @@
       "titulo": "Undertale",
       "autor": "desconhecido",
       "disponivel": false
+    },
+    {
+      "id": "2",
+      "titulo": "Dungens & Dragons",
+      "autor": "Gary Gygax e Dave Arneson",
+      "disponivel": true
     },
     {
       "id": "2",
