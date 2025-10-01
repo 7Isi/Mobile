@@ -49,34 +49,45 @@ class MovieFirestoreController {
     final movie = Movie(
       id: movieData["id"], 
       title: movieData["title"], 
-      posterPath: movieData["poster_path"]);
+      posterPath: file.path.toString()); //corrigir para o endereço certo da imagem
     
     //adicionar o OBJ ao FireStore
     await _db.collection("users").doc(currentUser!.uid).collection("favorite_movies")
     .doc(movie.id.toString()) //eu determinei o ID o OBJ no banco
-    .set(movie.toMap()); //
+    .set(movie.toMap()); 
   }
 
   //delete (dos favoritos)
-  void deleteFavoriteMovie (int movieId) async{
-    if(currentUser == null) return;
-    await _db.collection("users").doc(currentUser!.uid).collection("favorite_movies")
-    .doc(movieId.toString()).delete();
+  Future<void> deleteFavoriteMovie(Movie movie) async {
+    if (currentUser == null) return;
 
-    // deletar a imagem do diretório 
-    final imgPath = await getApplicationCacheDirectory();
-    final file = File("${imgPath.path}/$movieId.jpg");
+    // Deleta do Firestore
+    await _db
+        .collection("users")
+        .doc(currentUser!.uid)
+        .collection("favorite_movies")
+        .doc(movie.id.toString())
+        .delete();
+
+    // Deleta o arquivo da imagem
+    final file = File(movie.posterPath);
     try {
-      await file.delete();  
+      if (await file.exists()) {
+        await file.delete();
+      }
     } catch (e) {
-      print("erro ao deletar img");
+      print("Erro ao deletar imagem local: $e");
     }
   }
 
-  //update (rating)
-  void updateMovieRating(int movieId, double rating) async{
-    if(currentUser == null) return;
-    await _db.collection("users").doc(currentUser!.uid).collection("favorite_movies")
-    .doc(movieId.toString()).update({"rating":rating});
+  Future<void> updateMovieRating(Movie movie, double rating) async {
+    if (currentUser == null) return;
+
+    await _db
+        .collection("users")
+        .doc(currentUser!.uid)
+        .collection("favorite_movies")
+        .doc(movie.id.toString())
+        .update({"rating": rating});
   }
 }
