@@ -1,3 +1,4 @@
+import 'package:exemplo_geolocator/clima_service.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 
@@ -20,7 +21,7 @@ class _LocationScreenState extends State<LocationScreen> {
   
 
   //Método para pegar o localização atual
-  void getLocartion() async{
+  void getLocation() async{
     bool servicoDisponivel;
     LocationPermission permissao;
 
@@ -47,18 +48,50 @@ class _LocationScreenState extends State<LocationScreen> {
     });
   }
 
+  //método para buscar a cidade e a temperatura
+  void getCityWeather() async{
+    //verificar se a serviço está habilitado
+    bool serviceEnable = await Geolocator.isLocationServiceEnabled();
+    if(!serviceEnable){
+      mensagem = "Serviço de GPS não habilitado";
+      return;
+    }
+    LocationPermission permission = await Geolocator.checkPermission();
+    if(permission == LocationPermission.denied){
+      //solicitação de permição
+      permission = await Geolocator.requestPermission();
+      if(permission == LocationPermission.denied){
+        mensagem = "Serviço de GPS indisponível";
+        return;
+      }
+    }
+    //se serviço for habilitado
+    Position position = await Geolocator.getCurrentPosition();
+    //chamar a api de clima
+    try {
+      final cidade = await ClimaService.getCityWeatherByPosition(position);
+      mensagem = "${cidade["name"]}: ${cidade["main"]["temp"] -273} °C";
+    } catch (e) {
+      mensagem = e.toString();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("GPS - Localização")),
+      appBar: AppBar(title: Text("GPS - Localização"),),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(mensagem),
-            ElevatedButton(
-              onPressed: () async{getLocartion();},
-              child: Text("Obter Localização"))
+            ElevatedButton(onPressed: () async{getLocation();},
+             child: Text("Obter Localização")),
+            ElevatedButton(onPressed: () async{
+              setState(() {
+                getCityWeather();
+              });
+            }, child: Text("Obter Clima"))
           ],
         ),
       ),
