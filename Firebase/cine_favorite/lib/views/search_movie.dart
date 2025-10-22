@@ -1,7 +1,6 @@
 //Tela para Procurar Filmes na API, permite adicionar filmes aos Favoritos
 
 import 'package:cine_favorite/controllers/movie_firestore_controller.dart';
-import 'package:cine_favorite/models/movie.dart';
 import 'package:cine_favorite/services/tmdb_service.dart';
 import 'package:flutter/material.dart';
 

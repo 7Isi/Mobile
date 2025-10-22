@@ -3,7 +3,6 @@ import 'dart:io';
 import 'package:cine_favorite/controllers/movie_firestore_controller.dart';
 import 'package:cine_favorite/models/movie.dart';
 import 'package:cine_favorite/views/search_movie.dart';
-import 'package:cine_favorite/views/search_movie.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
