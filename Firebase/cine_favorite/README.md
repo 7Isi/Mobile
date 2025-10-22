@@ -132,5 +132,3 @@ D --> NÃO --> F[Mensagem de Erro] --> B
 
 - [Colocar o Link do Figma](https://www.figma.com/design/g1xYMiXgqKv47ElK0v5Hka/Untitled?node-id=0-1&t=758pRFHMVr4QLxy7-1)
 
-
-## Codificação
