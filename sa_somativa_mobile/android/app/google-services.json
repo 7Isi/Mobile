@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1065965783691",
+    "project_id": "sa-somativa-mobile",
+    "storage_bucket": "sa-somativa-mobile.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1065965783691:android:4b8e3094c7671577ca228e",
+        "android_client_info": {
+          "package_name": "com.example.sa_somativa_mobile"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_VGr1AWol2QV842sQgC91rzgDANOdqLw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
